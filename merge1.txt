@@ -4,3 +4,7 @@ It's me
 =======
 I was wondering if after all these changes you'd like to merge
 >>>>>>> merge2.txt
+
+Anything we need to do after the merge?
+
+We good
