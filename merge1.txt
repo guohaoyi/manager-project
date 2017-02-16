@@ -1,3 +1,6 @@
 Hello
+<<<<<<< merge1.txt
 It's me
+=======
 I was wondering if after all these changes you'd like to merge
+>>>>>>> merge2.txt
