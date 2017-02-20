@@ -2,14 +2,110 @@
 
 <!DOCTYPE html>
 <html>
-
 <head>
-<title>CSC 336 Manager</title>
-</head>
+<style>
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
 
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: black;
+    clear: left;
+    text-align: center;
+}
+
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+}
+
+article {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+
+div.tab {
+	overflow: hidden;
+	border: 1px solid gray;
+	background-color: dark gray;
+}
+	
+div.tab a {
+	float: left;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	transition: 0.0s;
+	font-size: 17px;
+}
+
+div.tab a:focus, .active {
+	background-color: #ccc;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+</style>
+</head>
 <body>
 
-<p>This is a paragraph.</p>
+<div class="container">
+<div class="tab">
+	<a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</a>
+	<a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Assignments')">Assignments</a>
+	<a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Grades')">Grades</a>
+	<a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Groups')">Groups</a>  
+</div>
+
+<div id="Home" class="tabcontent">
+	<header>
+		<h1>Home</h1>  
+	</header>
+
+	<article>
+		<h1>London</h1>
+		<p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+		<p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+	</article>
+
+	<footer>Copyright &copy; W3Schools.com</footer>
+
+</div>
+
+<script>
+function openTab(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+document.getElementById("defaultOpen").click();
+</script>
+
+
+
 
 </body>
 </html>
