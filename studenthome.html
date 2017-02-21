@@ -8,32 +8,49 @@
         <style>
             div.header {
                 width: 100%;
-                border: 1px solid gray;
+                border: 5px solid gray;
             }
             div.tag {
                 display: inline-block;
                 background: #aaa;
                 color: white;
-                margin-left: 10px;
-                margin-right: 10px;
-                padding-left: 5px;
-                padding-right: 5px;
+                margin-left: 20px;
+                margin-right: 20px;
+                padding-left: 10px;
+                padding-right: 10px;
             }
             #assignments {
+                border: 5px solid gray;
                 height: 400px;
-                width: 75%;
+                width: 70%;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                margin-left: 20px;
+                margin-right: 20px;
                 background-color: antiquewhite;
                 float: left;
             }
+            div.contentblock {
+                border: 3px solid gray;
+            }
             #classgrade {
+                border: 5px solid gray;
                 height: 400px;
-                width: 25%;
+                width: 24%;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                margin-right: 20px;
                 background-color: aqua;
                 float: right;
             }
             #groupassignments {
+                border: 5px solid gray;
                 height: 400px;
-                width: 100%;
+                width: 97%;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                margin-left: 20px;
+                margin-right: 20px;
                 background-color: beige;
                 float:left;
             }
@@ -60,11 +77,24 @@
         </div>
         
         <div id="assignments">
-            <p>home</p>
+            <div class="contentblock">
+                <h1>Assignments</h1>
+            </div>
+            <div>
+                <h2>1) Login Page</h2>
+                <h2>2) Home Page</h2>
+                <h2>3) Group Page</h2>
+                <h2>4) Grades Page</h2>
+            </div>
         </div>
         
         <div id="classgrade">
-            <p>home</p>
+            <div class="contentblock">
+                <h1>Class Grade</h1>
+            </div>
+            <div>
+                <h1>B 86%</h1>
+            </div>
         </div>
         
         <div id="groupassignments">
