@@ -6,36 +6,67 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>MANAGER</title>
         <style>
+            body {
+                font-family: arial,sans-serif;
+            }
             div.header {
                 width: 100%;
-                border: 1px solid gray;
+                border: 5px solid gray;
             }
             div.tag {
                 display: inline-block;
                 background: #aaa;
                 color: white;
-                margin-left: 10px;
-                margin-right: 10px;
-                padding-left: 5px;
-                padding-right: 5px;
+                margin-left: 20px;
+                margin-right: 20px;
+                padding-left: 10px;
+                padding-right: 10px;
             }
             #assignments {
+                border: 5px solid gray;
                 height: 400px;
-                width: 75%;
+                width: 70%;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                margin-left: 20px;
+                margin-right: 20px;
                 background-color: antiquewhite;
                 float: left;
             }
+            div.contentblock {
+                border: 3px solid gray;
+            }
             #classgrade {
+                border: 5px solid gray;
                 height: 400px;
-                width: 25%;
+                width: 24%;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                margin-right: 20px;
                 background-color: aqua;
                 float: right;
             }
+            #grade {
+                font-size: 700%;
+                text-align: center;
+            }
             #groupassignments {
+                border: 5px solid gray;
                 height: 400px;
-                width: 100%;
+                width: 97%;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                margin-left: 20px;
+                margin-right: 20px;
                 background-color: beige;
                 float:left;
+            }
+            div.groupassignmentsblock {
+                border: 3px solid gray;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                margin-left: 20px;
+                margin-right: 20px;
             }
         </style>
     </head>
@@ -60,15 +91,39 @@
         </div>
         
         <div id="assignments">
-            <p>grades</p>
+            <div class="contentblock">
+                <h1>Assignments</h1>
+            </div>
+            <div>
+                <h2>1) Login Page</h2>
+                <h2>2) Home Page</h2>
+                <h2>3) Group Page</h2>
+                <h2>4) Grades Page</h2>
+            </div>
         </div>
         
         <div id="classgrade">
-            <p>grades</p>
+            <div class="contentblock">
+                <h1>Class Grade</h1>
+            </div>
+            <div>
+                <h2 id="grade">B 86%</h2>
+            </div>
         </div>
         
         <div id="groupassignments">
-            <p>grades</p>
+            <div class="contentblock">
+                <h1>Group Assignments</h1>
+            </div>
+            <div class="groupassignmentsblock">
+                <h2> Design Login</h2>
+            </div>
+            <div class="groupassignmentsblock">
+                <h2> Code Login</h2>
+            </div>
+            <div class="groupassignmentsblock">
+                <h2> Code Login</h2>
+            </div>
         </div>
         
     </body>
