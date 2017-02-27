@@ -1,9 +1,0 @@
-Hello
-<<<<<<< HEAD
-=======
-I was wondering if after all these changes you'd like to merge
-
-Sure, I'd love to.
->>>>>>> deaa44501a51437ac7b9bdb0a100732385565eee
-
-New changes
