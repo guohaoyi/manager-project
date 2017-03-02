@@ -1,151 +1,143 @@
-( function()
-{
-    angular.module("pokedex",['ngRoute']);
-
-    var pokedexModelF = function()
-    {
-	return [
-	    {
-		name:"Abra",
-		description :"Telports away",
-		img:"http://web.centre.edu/michael.bradshaw/catchem/abra.png",
-		cool:true
-	    },
-	    {
-		name:"Bee Drill",
-		description: "Bee with Drills",
-		img:"http://web.centre.edu/michael.bradshaw/catchem/beedrill.png",
-		cool:false
-	    },
-	    {
-		name:"Rattata",
-		description:"The only animal in pokemon Go",
-		img:"http://web.centre.edu/michael.bradshaw/catchem/rattata.png",
-		cool:true
-	    }
-	];
-
-
-
+( function()  {
+    angular.module("project-manager", ['ngRoute']);
+    
+    var service = function()  {
+        return [
+            {
+                student: {
+					name: "Joe Blake",
+                    grade: "B  92%";
+                },
+                teacher: {
+                    name: "Dr. Bradshaw"
+                },
+                assignments: [
+                {
+                    title: "Design Login",
+                    progress: "D",
+                    dueDays: "2",
+                    description: "this is the project description",
+                    group: ["JB", "MH", "RA", "BR", "JG"],
+                    graded: true,
+                    grade: "A"
+                },
+                    {
+                    title: "Home Page",
+                    progress: "P",
+                    dueDays: "1",
+                    description: "this is the project description",
+                    group: ["BJ", "WS", "RA", "BR", "JG"],
+                    graded: true,
+                    grade: "A"
+                },
+                    {
+                    title: "Group Page",
+                    progress: "I",
+                    dueDays: "-3",  //negative means pass due date
+                    description: "this is the project description",
+                    group: ["JB", "MH", "RA", "BR", "JG"],
+                    graded: true,
+                    grade: "B"
+                },
+                    {
+                    title: "Grades Page",
+                    progress: "P",
+                    dueDays: "4",
+                    description: "this is the project description",
+                    group: ["JB", "MH", "RA", "BR", "JG"],
+                    graded: false
+                },
+                    {
+                    title: "Design Login",
+                    progress: "D",
+                    dueDays: "1",
+                    description: "this is the project description",
+                    group: ["JB", "MH", "RA", "BR", "JG"],
+                    graded: true,
+                    grade: "A"
+                },
+                    {
+                    title: "Design Login",
+                    progress: "D",
+                    dueDays: "1",
+                    description: "this is the project description",
+                    group: ["JB", "MH", "RA", "BR", "JG"],
+                    graded: true,
+                    grade: "A"
+                },
+                    
+                    ],
+                users: [
+                    {
+                        name: "Josh Boldt",
+                        summary: "summary of Josh",
+                        tasks: ["Design Login", "Code Login"]
+                    },
+                    {
+                        name: "Morgan Hites",
+                        summary: "summary of Morgan",
+                        tasks: ["Design Login", "Code Login"]
+                    },
+                    {
+                        name: "Ryland Atinks",
+                        summary: "summary of Ryland",
+                        tasks: ["Home Page", "Group Page"]
+                        
+                    },
+					{
+						name: "Joe Blake",
+						summary: "summary of Joe",
+						tasks: ["Design Login", "Grades Page"]
+					}
+                    
+                ]
+            }
+        ];
     };
-
-
-
-    var pokedexController = function($scope,$location,pokedexModel)
-    {
-
-	$scope.pokedex = pokedexModel;
-	$scope.showCool = true;
-
-	$scope.addPokemon = function()
-	{
-	    $location.path("addPokemon");
+    
+	var mainController = function($scope, service, $location)  {
+		$scope.name = service[0].student.name;
+		$scope.assignments = service[0].assignments;
+		$scope.users = service[0].users;
+		
+		$scope.loginType = function(){
+			if ($scope.email == "professor@centre.edu")
+				{
+					$location.path("teacherHome")
+				}
+			else if($scope.email == "student@centre.edu")
+				{
+					$location.path("studenthome")
+				}
+		}
 	}
-
-    }
-
-//directive
-
-    var myFooter = function()
-    {
-	return {
-	    templateUrl:"myFooter.html"
-	    };
-    }
-
-
-    var pokemonSummary = function()
-    {
-	return {
-	    scope:{mon: "=monster"},
-	    templateUrl:"pokemonSummary.html"
-	    };
-    };
-
- var pokemonDetail = function()
-    {
-	return {
-	    scope:{mon: "=monster"},
-	    templateUrl:"pokemonDetail.html"
-	    };
-    };
-
-   
-
-
-    var pokemonController = function($scope,$routeParams,pokedexModel)
-    {
-
-	$scope.mon = 
-	    pokedexModel.find(function(element)
-	    {
-		return element.name == 	$routeParams.monid;
-	    });
-    }
-
-
-    var addPokemonController = function($scope,$location,pokedexModel)
-    {
-	$scope.monster = {name:"new poke",
-			  img:"http://web.centre.edu/michael.bradshaw/catchem/beedrill.png",
-			 description:"please change",
-			  cool:true};
 	
-
-	$scope.backHome = function()
-	{
-	    $location.path("/");
-	}
-
-	$scope.storeMonster = function()
-	{
-	    pokedexModel.push($scope.monster);
-	    $scope.backHome();	    
-	}
+	var router = function($routeProvider) {
+		$routeProvider
+		.when("/",
+			 {
+			templateUrl: "login.html",
+			controller: "mainController"
+		})
+		.when("/student",
+			 {
+			templateUrl: "studenthome.html",
+			controller: "mainController"
+		})
+		.when("/teacher",
+			 {
+			templateUrl: "teacherHome.html",
+			controller: "mainController"
+		})
+		.otherwise({redirectTo:"/register.html"});
+	};
 	
-
-    }
-
-
-    var routingConfig = function($routeProvider)
-    {
-
-	$routeProvider
-	.when("/",
-	      {
-		  templateUrl:"pokemon.html",
-		  controller:"pokedexController"
-	      })
-	.when("/pokemon/:monid",
-	      {
-		  templateUrl:"pokemonDetail.html",
-		  controller:"pokemonController"
-	      })
-	.when("/addPokemon",
-	      {
-		  templateUrl:"pokemonAdd.html",
-		  controller:"addPokemonController"
-	      })
-
-
-	.otherwise({redirectTo:"/badlink"});
-    };
-
-
-
-
-    angular
-    .module("pokedex")
-    .controller("pokedexController",pokedexController)
-    .controller("pokemonController",pokemonController)
-    .controller("addPokemonController",addPokemonController)
-    .directive("myFooter",myFooter)
-    .directive("pokemonSummary",pokemonSummary)
-    .directive("pokemonDetail",pokemonDetail)
-    .config(['$routeProvider',routingConfig])
-    .service("pokedexModel",pokedexModelF);
-
-
-
+	angular.module("project-manager")
+	.controller("mainController", mainController)
+	.config(["$routeProvider", router])
+	.service("service", service);
+	
+	
+	
 
 })();
