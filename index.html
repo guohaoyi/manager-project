@@ -12,13 +12,7 @@
     </head>
     <body>
         
-        <div class="container">
-            <label for="email-input">Email</label>
-            <input type="email" ng-model="email" placeholder="firstname.lastname@centre.edu" id="email-input">
-            <label for="password-input">Password</label>
-            <input type="password" ng-model="password" placeholder="password" id="password-input">
-            <button ng-click="login()" type="button">Login</button>
-            <button ng-click="createAccount()" type="button" class="red-btn">Sign Up</button>
+        <div ng-view>
         </div>
         
     </body>
