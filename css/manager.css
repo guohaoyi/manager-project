@@ -1,18 +1,25 @@
+head {
+	background-color: powderblue;
+	border: 5px solid black;
+}
 body {
     font-family: arial,sans-serif;
 }
 div.header {
     width: 100%;
     border: 5px solid gray;
+	background-color: lightgray;
 }
 div.tag {
-    display: inline-block;
-    background: #aaa;
-    color: white;
-    margin-left: 20px;
-    margin-right: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
+	display: inline-flex;
+        background-color: rgb(150,150,200);
+        color: white 
+	margin-left: 30px;
+        margin-right: 30px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+        padding-left: 40px;
+        padding-right: 40px;
 }
 #assignments {
     border: 5px solid gray;
@@ -59,4 +66,57 @@ div.groupassignmentsblock {
     margin-bottom: 20px;
     margin-left: 20px;
     margin-right: 20px;
+}
+
+.flex-container {
+	display: flex;
+	
+	background-color: rgb(150,150,200);
+	border-style: solid;
+        border-width: 2px;
+	padding: 10px;
+}
+
+.flex-item {
+	background-color: rgb(150,150,150);
+	padding: 20px;
+	margin: 10px;
+	border-style: solid;
+	border-width: 5px;
+
+}
+.flexcol {
+	flex-direction: column;
+	width: 75%;
+}
+
+.flexrow {
+	flex-direction: row;
+	width: 25%;
+}
+	
+#class-grade {
+	text-align:center;
+	
+	height: 90%;
+}
+
+
+#grade-num {
+	font-size:300%;
+	color: black;
+}
+
+#assign-content {
+	flex-direction: column;
+}
+
+#today {
+	text-align:center;
+	height: 400px;
+
+}
+#all {
+	text-align:center;
+	height: 300px;
 }
