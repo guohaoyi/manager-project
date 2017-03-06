@@ -21,6 +21,7 @@ div.tag {
         padding-left: 40px;
         padding-right: 40px;
 }
+/*
 #assignments {
     border: 5px solid gray;
     height: 400px;
@@ -32,6 +33,7 @@ div.tag {
     background-color: antiquewhite;
     float: left;
 }
+*/
 div.contentblock {
     border: 3px solid gray;
 }
