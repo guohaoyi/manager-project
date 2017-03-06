@@ -1,19 +1,16 @@
-<!DOCTYPE html>
 <html>
-    
-    <head>
+<head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>MANAGER</title>
-        <link rel="stylesheet" type="text/css" href="css/manager.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-route.js"></script>
         <script src="js/manager.js"></script>
-    </head>
-    <body>
-        
-        <div class="header">
+</head>
+<body>
+	<div class="header">
             <header>
                 <h1>Logo</h1>
             </header>
@@ -30,42 +27,31 @@
                 <h2><a href="studentassignments.html">Assignments</a></h2>
             </div>
         </div>
-        
-        <div id="assignments">
-            <div class="contentblock">
-                <h1>Assignments</h1>
-            </div>
-            <div>
-                <h2>1) Login Page</h2>
-                <h2>2) Home Page</h2>
-                <h2>3) Group Page</h2>
-                <h2>4) Grades Page</h2>
-            </div>
-        </div>
-        
-        <div id="classgrade">
-            <div class="contentblock">
-                <h1>Class Grade</h1>
-            </div>
-            <div>
-                <h2 id="grade">B 86%</h2>
-            </div>
-        </div>
-        
-        <div id="groupassignments">
-            <div class="contentblock">
-                <h1>Group Assignments</h1>
-            </div>
-            <div class="groupassignmentsblock">
-                <h2> Design Login</h2>
-            </div>
-            <div class="groupassignmentsblock">
-                <h2> Code Login</h2>
-            </div>
-            <div class="groupassignmentsblock">
-                <h2> Code Login</h2>
-            </div>
-        </div>
-        
-    </body>
+	
+	<div class="flex-container">
+		<div class="flexcol">
+			<div class="flex-item" id="assignments">
+				<h2>Assignments</h2>
+			       	<h3>1) Login Page</h3>
+			       	<h3>2) Home Page</h3>
+			       	<h3>3) Group Page</h3>
+			       	<h3>4) Grades Page</h3>
+		      	</div>
+			<div class="flex-item" id="group-assignments">
+				<h2>Group Assignments</h2>
+				<h3>Design Login</h3>
+			       	<h3>Code Login</h3>
+			       	<h3>Free Login</h3>
+			       	<h3>Assignment Pop-up</h3>
+			</div>
+		</div>
+		<div class="flexrow">
+			<div class="flex-item" id="class-grade">
+				<h1>Class Grade</h1>
+				<p id="grade-num">82%</p>
+			</div>
+		</div>
+	</div>
+
+</body>
 </html>
