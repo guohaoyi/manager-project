@@ -1,143 +1,162 @@
-( function()  {
-    angular.module("project-manager", ['ngRoute']);
+(function() {
+    angular.module("manager", ['ngRoute']);
     
-    var service = function()  {
+    var studentHomeModelF = function() {
         return [
             {
-                student: {
-					name: "Joe Blake",
-                    grade: "B  92%";
-                },
-                teacher: {
-                    name: "Dr. Bradshaw"
-                },
-                assignments: [
-                {
-                    title: "Design Login",
-                    progress: "D",
-                    dueDays: "2",
-                    description: "this is the project description",
-                    group: ["JB", "MH", "RA", "BR", "JG"],
-                    graded: true,
-                    grade: "A"
-                },
-                    {
-                    title: "Home Page",
-                    progress: "P",
-                    dueDays: "1",
-                    description: "this is the project description",
-                    group: ["BJ", "WS", "RA", "BR", "JG"],
-                    graded: true,
-                    grade: "A"
-                },
-                    {
-                    title: "Group Page",
-                    progress: "I",
-                    dueDays: "-3",  //negative means pass due date
-                    description: "this is the project description",
-                    group: ["JB", "MH", "RA", "BR", "JG"],
-                    graded: true,
-                    grade: "B"
-                },
-                    {
-                    title: "Grades Page",
-                    progress: "P",
-                    dueDays: "4",
-                    description: "this is the project description",
-                    group: ["JB", "MH", "RA", "BR", "JG"],
-                    graded: false
-                },
-                    {
-                    title: "Design Login",
-                    progress: "D",
-                    dueDays: "1",
-                    description: "this is the project description",
-                    group: ["JB", "MH", "RA", "BR", "JG"],
-                    graded: true,
-                    grade: "A"
-                },
-                    {
-                    title: "Design Login",
-                    progress: "D",
-                    dueDays: "1",
-                    description: "this is the project description",
-                    group: ["JB", "MH", "RA", "BR", "JG"],
-                    graded: true,
-                    grade: "A"
-                },
-                    
-                    ],
-                users: [
-                    {
-                        name: "Josh Boldt",
-                        summary: "summary of Josh",
-                        tasks: ["Design Login", "Code Login"]
-                    },
-                    {
-                        name: "Morgan Hites",
-                        summary: "summary of Morgan",
-                        tasks: ["Design Login", "Code Login"]
-                    },
-                    {
-                        name: "Ryland Atinks",
-                        summary: "summary of Ryland",
-                        tasks: ["Home Page", "Group Page"]
-                        
-                    },
-					{
-						name: "Joe Blake",
-						summary: "summary of Joe",
-						tasks: ["Design Login", "Grades Page"]
-					}
-                    
-                ]
+                number: 1,
+                name: "Login Page"
+            },
+            {
+                number: 2,
+                name: "Home Page"
             }
-        ];
+        ]
     };
     
-	var mainController = function($scope, service, $location)  {
-		$scope.name = service[0].student.name;
-		$scope.assignments = service[0].assignments;
-		$scope.users = service[0].users;
-		
-		$scope.loginType = function(){
-			if ($scope.email == "professor@centre.edu")
-				{
-					$location.path("teacherHome")
-				}
-			else if($scope.email == "student@centre.edu")
-				{
-					$location.path("studenthome")
-				}
-		}
-	}
-	
-	var router = function($routeProvider) {
-		$routeProvider
-		.when("/",
-			 {
-			templateUrl: "login.html",
-			controller: "mainController"
-		})
-		.when("/student",
-			 {
-			templateUrl: "studenthome.html",
-			controller: "mainController"
-		})
-		.when("/teacher",
-			 {
-			templateUrl: "teacherHome.html",
-			controller: "mainController"
-		})
-		.otherwise({redirectTo:"/register.html"});
-	};
-	
-	angular.module("project-manager")
-	.controller("mainController", mainController)
-	.config(["$routeProvider", router])
-	.service("service", service);
-	
-	
-	
-
+    var studentGroupsModelF = function() {
+        return [
+            {
+                number: 1,
+                name: "Login Page"
+            },
+            {
+                number: 2,
+                name: "Home Page"
+            }
+        ]
+    };
+    
+    var studentGradesModelF = model() {
+        return [
+            {
+                number: 1,
+                name: "Login Page"
+            },
+            {
+                number: 2,
+                name: "Home Page"
+            }
+        ]
+    };
+    
+    var studentAssignmentsModelF = function() {
+        return [
+            {
+                number: 1,
+                name: "Login Page"
+            },
+            {
+                number: 2,
+                name: "Home Page"
+            }
+        ]
+    };
+    
+    var studentHomeController = function($scope, $location, studentHomeModel, studentGroupsModel, studentGradesModel, studentAssignmentsModel) {
+        $scope.student = studentHomeModel;
+        $scope.groups = studentGroupsModel;
+        $scope.grades = studentGradesModel;
+        $scope.assignment = studentAssignmentsModel;
+        var model = [];
+        for (var i = 0; i < studentGroupsModel.length; i++) {
+            model.push(studentGroupsModel[i]);
+        };
+        $scope.goHome = function() {
+            $location.path("/");
+        };
+        $scope.goGroups = function() {
+            $location.path("/groups");
+        };
+        $scope.goGrades = function() {
+            $location.path("/grades");
+        };
+        $scope.goAssignments = function() {
+            $location.path("/assignments");
+        };
+    };
+    
+    var studentGroupsController = function($scope, $location, studentHomeModel, studentGroupsModel, studentGradesModel, studentAssignmentsModel) {
+        $scope.student = studentHomeModel;
+        $scope.groups = studentGroupsModel;
+        $scope.goHome = function() {
+            $location.path("/");
+        };
+        $scope.goGroups = function() {
+            $location.path("/groups");
+        };
+        $scope.goGrades = function() {
+            $location.path("/grades");
+        };
+        $scope.goAssignments = function() {
+            $location.path("/assignments");
+        };
+    };
+    
+    var studentGradesController = function($scope, $location, studentHomeModel, studentGroupsModel, studentGradesModel, studentAssignmentsModel) {
+        $scope.student = studentHomeModel;
+        $scope.grades = studentGradesModel;
+        $scope.goHome = function() {
+            $location.path("/");
+        };
+        $scope.goGroups = function() {
+            $location.path("/groups");
+        };
+        $scope.goGrades = function() {
+            $location.path("/grades");
+        };
+        $scope.goAssignments = function() {
+            $location.path("/assignments");
+        };
+    };
+    
+    var studentAssignmentsController = function($scope, $location, studentHomeModel, studentGroupsModel, studentGradesModel, studentAssignmentsModel) {
+        $scope.student = studentHomeModel;
+        $scope.assignment = studentAssignmentsModel;
+        $scope.goHome = function() {
+            $location.path("/");
+        };
+        $scope.goGroups = function() {
+            $location.path("/groups");
+        };
+        $scope.goGrades = function() {
+            $location.path("/grades");
+        };
+        $scope.goAssignments = function() {
+            $location.path("/assignments");
+        };
+    };
+    
+    var routingConfig = function($routeProvider) {
+        $routeProvider
+        .when("/", {
+            templateUrl:"studentHome.html",
+            controller:"studentHomeController"
+        })
+        .when("/groups", {
+            templateUrl:"studentGroups.html",
+            controller:"studentGroupsController"
+        })
+        .when("/grades", {
+            templateUrl:"studentGrades.html",
+            controller:"studentGradesController"
+        })
+        .when("/assignments", {
+            templateUrl:"studentAssignments.html",
+            controller:"studentAssignmentsController"
+        });
+    };
+    
+    angular.module("manager")
+    .controller("studentHomeController",studentHomeController)
+    .controller("studentGroupsController",studentGroupsController)
+    .controller("studentGradesController",studentGradesController)
+    .controller("studentAssignmentsController",studentAssignmentsController)
+    .config(["$routeProvider", routingConfig])
+    .service("studentHomeModel",studentHomeModelF)
+    .service("studentGroupsModel",studentGroupsModelF)
+    .service("studentGradesModel",studentGradesModelF)
+    .service("studentAssignmentsModel",studentAssignmentsModelF);
+    
+    
 })();
