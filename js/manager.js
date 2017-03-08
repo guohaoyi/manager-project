@@ -2,27 +2,42 @@
     angular.module("manager", ['ngRoute']);
     
     var studentHomeModelF = function() {
-        return [
-            {
-                number: 1,
-                name: "Login Page"
-            },
-            {
-                number: 2,
-                name: "Home Page"
-            }
-        ]
+        return {
+            name: "Haoyi Guo",
+            grade: "A",
+            numgrade: 93
+        };
     };
     
     var studentGroupsModelF = function() {
         return [
             {
                 number: 1,
-                name: "Login Page"
+                name: "Login Page",
+                type: "design",
+                group: ["NM", "TN", "KY", "MS"],
+                url: "centre.edu"
             },
             {
                 number: 2,
-                name: "Home Page"
+                name: "Code",
+                type: "design",
+                group: ["NM", "TN", "KY", "MS"],
+                url: "centre.edu"
+            },
+            {
+                number: 3,
+                name: "Code",
+                type: "design",
+                group: ["NM", "TN", "KY", "MS"],
+                url: "centre.edu"
+            },
+            {
+                number: 4,
+                name: "Code",
+                type: "design",
+                group: ["NM", "TN", "KY", "MS"],
+                url: "centre.edu"
             }
         ]
     };
@@ -61,13 +76,13 @@
     
     var studentHomeController = function($scope, $location, studentHomeModel, studentGroupsModel, studentGradesModel, studentAssignmentsModel) {
         $scope.student = studentHomeModel;
-        $scope.groups = studentGroupsModel;
         $scope.grades = studentGradesModel;
         $scope.assignment = studentAssignmentsModel;
         var model = [];
         for (var i = 0; i < studentGroupsModel.length; i++) {
             model.push(studentGroupsModel[i]);
         };
+        $scope.groups = model;
         $scope.goHome = function() {
             $location.path("/");
         };
@@ -150,7 +165,8 @@
         .when("/assignments", {
             templateUrl:"studentAssignments.html",
             controller:"studentAssignmentsController"
-        });
+        })
+        .otherwise({redirectTo:"/badlink"});
     };
     
     angular.module("manager")
