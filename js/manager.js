@@ -27,7 +27,7 @@
         ]
     };
     
-    var studentGradesModelF = model() {
+    var studentGradesModelF = function() {
         return [
             {
                 number: 1,
@@ -51,6 +51,12 @@
                 name: "Home Page"
             }
         ]
+    };
+    
+    var myHeader = function() {
+        return {
+            templateUrl:"myHeader.html"
+        };
     };
     
     var studentHomeController = function($scope, $location, studentHomeModel, studentGroupsModel, studentGradesModel, studentAssignmentsModel) {
@@ -152,6 +158,7 @@
     .controller("studentGroupsController",studentGroupsController)
     .controller("studentGradesController",studentGradesController)
     .controller("studentAssignmentsController",studentAssignmentsController)
+    .directive("myHeader",myHeader)
     .config(["$routeProvider", routingConfig])
     .service("studentHomeModel",studentHomeModelF)
     .service("studentGroupsModel",studentGroupsModelF)
